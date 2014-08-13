@@ -1,0 +1,348 @@
+﻿2013/10/13 18:36:26 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'ORDER BY t.PROG_NOMBRE ASC' at line 1. The SQL statement executed was: SELECT t.PROG_ID, t.PROG_NOMBRE FROM `TBL_PROGRAMAS` `t` INNER JOIN TBL_CATEDRATICOSCATEDRAS  cc ON t.PROG_ID = cc.PROG_ID AND cc.CACO_ID =  ORDER BY t.PROG_NOMBRE ASC.
+in C:\wamp\www\GUNIG\protected\modules\contratacion\models\Catedraticoscatedras.php (220)
+in C:\wamp\www\GUNIG\protected\modules\contratacion\views\mdlcatedraticos\catedraticoscatedras\admin.php (100)
+in C:\wamp\www\GUNIG\protected\modules\contratacion\controllers\mdlcatedraticos\CatedraticoscatedrasController.php (167)
+2013/10/15 18:52:29 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'cvp.CACO_ID' in 'field list'. The SQL statement executed was: SELECT COUNT(*) FROM `TBL_CATEDRATICOSCONTRATOS` `t` 
+		INNER JOIN TBL_PERSNATURALESCATEDRATICOS  pnc ON pnc.PENC_ID = t.PENC_ID
+		INNER JOIN TBL_PERSONASNATURALES  pn ON pn.PENA_ID = pnc.PENA_ID
+		INNER JOIN TBL_PERSONAS  p ON p.PERS_ID = pn.PERS_ID
+		INNER JOIN TBL_PERIODOSACADEMICOS  pa ON pa.PEAC_ID = pnc.PEAC_ID AND pa.PEAC_ESTADO = 0
+		AND t.CACO_ID NOT IN (SELECT cvp.CACO_ID FROM TBL_CATEDRATICOSCONTRATOVAYPR).
+in C:\wamp\www\GUNIG\protected\extensions\bootstrap\widgets\TbGridView.php (49)
+in C:\wamp\www\GUNIG\protected\modules\contratacion\views\mdlcatedraticos\catedraticoscontratos\admin.php (155)
+in C:\wamp\www\GUNIG\protected\modules\contratacion\controllers\mdlcatedraticos\CatedraticoscontratosController.php (161)
+2013/10/15 21:16:06 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 't.CACO_ID' in 'IN/ALL/ANY subquery'. The SQL statement executed was: SELECT cc.CACO_ID
+	 FROM TBL_FACULTADES f, TBL_PROGRAMAS p, TBL_CATEDRATICOSCATEDRAS cca, TBL_CATEDRATICOSCONTRATOS cc,
+	 TBL_PERSNATURALESCATEDRATICOS pnc, TBL_PERIODOSACADEMICOS pa
+	 WHERE  f.FACU_ID = p.FACU_ID AND p.PROG_ID = cca.PROG_ID AND pnc.PENC_ID = cc.PENC_ID AND
+	 pa.PEAC_ID = pnc.PEAC_ID AND pa.PEAC_ESTADO = 0 AND cc.CACO_ID = cca.CACO_ID
+	 AND t.CACO_ID NOT IN (SELECT cvp.CACO_ID FROM TBL_CATEDRATICOSCONTRATOVAYPR cvp)
+	  AND cc.CACO_ID = 6 GROUP BY (cc.CACO_ID) ORDER BY (cc.CACO_ID) ASC.
+in C:\wamp\www\GUNIG\protected\modules\contratacion\models\Catedraticoscontratos.php (188)
+in C:\wamp\www\GUNIG\protected\modules\contratacion\views\mdlcatedraticos\catedraticoscontratos\download.php (53)
+in C:\wamp\www\GUNIG\protected\modules\contratacion\controllers\mdlcatedraticos\CatedraticoscontratosController.php (209)
+2013/10/16 14:07:11 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1460' for key 'PERS_ID'. The SQL statement executed was: INSERT INTO `TBL_RESOLUCIONES` (`RESO_NUMERO`, `RESO_CONCEPTO`, `RESO_FECHASUSCRIPCION`, `RESO_FECHAPROCESO`, `PERS_ID`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4).
+in C:\wamp\www\GUNIG\protected\modules\financiero\controllers\segcuenta\ResolucionesController.php (80)
+in C:\wamp\www\GUNIG\index.php (13)
+2013/10/16 20:55:28 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'CONT_NUMORDEN' in 'field list'. The SQL statement executed was: SELECT MAX(CONT_NUMORDEN) FROM TBL_CATEDRATICOSCONTRATOS WHERE CACO_ANIO = 2013.
+in C:\wamp\www\GUNIG\protected\modules\contratacion\models\Catedraticoscontratos.php (275)
+in C:\wamp\www\GUNIG\protected\modules\contratacion\controllers\mdlcatedraticos\PersnaturalescatedraticosController.php (117)
+in C:\wamp\www\GUNIG\index.php (13)
+2013/10/17 13:43:44 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'PEAC_ID' in 'field list'. The SQL statement executed was: SELECT PEAC_ID FROM `TBL_ANIOSACADEMICOS` `t` WHERE t.PEAC_ESTADO = 0 LIMIT 1.
+in C:\wamp\www\GUNIG\protected\modules\contratacion\controllers\mdltutorias\TutoriascontratosController.php (85)
+in C:\wamp\www\GUNIG\index.php (13)
+2013/10/18 15:27:57 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[23000]: Integrity constraint violation: 1052 Column 'PENC_ID' in where clause is ambiguous. The SQL statement executed was: SELECT COUNT(*) FROM `TBL_CATEDRATICOSCONTRATOS` `t` 
+		INNER JOIN TBL_PERSNATURALESCATEDRATICOS  pnc ON pnc.PENC_ID = t.PENC_ID
+		INNER JOIN TBL_PERSONASNATURALES  pn ON pn.PENA_ID = pnc.PENA_ID
+		INNER JOIN TBL_PERSONAS  p ON p.PERS_ID = pn.PERS_ID
+		INNER JOIN TBL_PERIODOSACADEMICOS  pa ON pa.PEAC_ID = pnc.PEAC_ID AND pa.PEAC_ESTADO = 0 WHERE PENC_ID=:ycp0.
+in C:\wamp\www\GUNIG\protected\extensions\bootstrap\widgets\TbGridView.php (49)
+in C:\wamp\www\GUNIG\protected\modules\contratacion\views\mdlcatedraticos\catedraticoscontratos\admin.php (158)
+in C:\wamp\www\GUNIG\protected\modules\contratacion\controllers\mdlcatedraticos\CatedraticoscontratosController.php (164)
+2013/10/18 20:20:12 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'OR t.CUEN_ESTADO =  OR t.CUEN_ESTADO = ) WHERE c.CONT_ID='984'' at line 4. The SQL statement executed was: SELECT COUNT(*) FROM `TBL_CUENTAS` `t` 
+	    INNER JOIN TBL_CONTRATOS c ON c.CONT_ID = t.CONT_ID
+		INNER JOIN TBL_PERSONAS p ON p.PERS_ID = c.PERS_ID
+		AND (t.CUEN_ESTADO >=  OR t.CUEN_ESTADO =  OR t.CUEN_ESTADO = ) WHERE c.CONT_ID=:ycp0.
+in C:\wamp\www\GUNIG\protected\extensions\bootstrap\widgets\TbGridView.php (49)
+in C:\wamp\www\GUNIG\protected\modules\financiero\views\segcuenta\cuentas\admin.php (165)
+in C:\wamp\www\GUNIG\protected\modules\financiero\controllers\segcuenta\CuentasController.php (187)
+2013/10/21 17:19:22 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1. The SQL statement executed was: SELECT * FROM `TBL_PERSONASNATURALES` `t` WHERE PERS_ID =  LIMIT 1.
+in C:\wamp\www\GUNIG\protected\modules\usuario\controllers\userhdv\HdveducacioncontinuaController.php (155)
+in C:\wamp\www\GUNIG\index.php (13)
+2013/10/23 16:04:18 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'CUEN_IDs' in 'where clause'. The SQL statement executed was: SELECT * FROM `TBL_SEGUIMIENTOCUENTAS` `t` WHERE CUEN_IDs = 444 LIMIT 1.
+in C:\wamp\www\GUNIG\protected\modules\financiero\views\mdltcuentas\cuentas\downloadc.php (83)
+in C:\wamp\www\GUNIG\protected\modules\financiero\controllers\mdltcuentas\CuentasController.php (348)
+in C:\wamp\www\GUNIG\index.php (13)
+2013/11/08 13:51:40 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'UNION
+	 SELECT pj.PEJU_NOMBRE
+	 FROM TBL_PERSONAS t
+	 INNER JOIN TBL_PERSONAS' at line 4. The SQL statement executed was: SELECT CONCAT(pn.PENA_APELLIDOS, ' ' , pn.PENA_NOMBRES) AS NOMBRE
+	 FROM TBL_PERSONAS t
+	 INNER JOIN TBL_PERSONASNATURALES pn ON pn.PERS_ID = t.PERS_ID AND t.PERS_ID = 
+	 UNION
+	 SELECT pj.PEJU_NOMBRE
+	 FROM TBL_PERSONAS t
+	 INNER JOIN TBL_PERSONASJURIDICAS pj ON pj.PERS_ID = t.PERS_ID AND t.PERS_ID = .
+in C:\wamp\www\GUNIG\protected\modules\contratacion\models\Personas.php (239)
+in C:\wamp\www\GUNIG\protected\modules\contratacion\views\mdlops\informes\rep_contraloria.php (95)
+in C:\wamp\www\GUNIG\protected\modules\contratacion\controllers\mdlops\InformesController.php (76)
+2013/11/16 10:51:05 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'c.CONT_IDs' in 'field list'. The SQL statement executed was: SELECT c.PERS_ID, c.CONT_IDs, t.OPCO_ID, p.PERS_IDENTIFICACION, c.PECO_ID, c.CONT_NUMORDEN,
+		c.CONT_FECHAINICIO, c.CONT_FECHAFINAL, c.CLCO_ID, t.ANAC_ID, t.OPCO_MESES, t.OPCO_DIAS, t.OPCO_VALOR_MENSUAL, t.DEPE_ID FROM `TBL_OPSCONTRATOS` `t` 
+		INNER JOIN TBL_CONTRATOS  c ON c.CONT_ID = t.CONT_ID
+		INNER JOIN TBL_PERSONAS p ON p.PERS_ID = c.PERS_ID
+		INNER JOIN TBL_ANIOSACADEMICOS  aa ON aa.ANAC_ID = t.ANAC_ID AND aa.ANAC_ESTADO = 0
+		INNER JOIN TBL_SUPERVISORES  s ON s.CONT_ID = c.CONT_ID WHERE s.PERS_ID=1098 LIMIT 30.
+in C:\wamp\www\GUNIG\protected\extensions\bootstrap\widgets\TbGridView.php (49)
+in C:\wamp\www\GUNIG\protected\modules\contratacion\views\mdlops\opscontratos\adminSupervisores.php (129)
+in C:\wamp\www\GUNIG\protected\modules\contratacion\controllers\mdlops\OpscontratosController.php (334)
+2013/11/18 09:02:14 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1. The SQL statement executed was: SELECT * FROM `TBL_USUARIOSPERFILESUSUARIOS` `t` WHERE USUA_ID =  LIMIT 1.
+in C:\wamp\www\GUNIG\protected\modules\contratacion\views\opscpanel\index.php (16)
+in C:\wamp\www\GUNIG\protected\modules\contratacion\controllers\OpscpanelController.php (7)
+in C:\wamp\www\GUNIG\index.php (13)
+2013/11/19 16:38:05 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'images' in 'on clause'. The SQL statement executed was: SELECT t.TIDO_ID, t.TIDO_NOMBRE FROM `TBL_TIPOSDOCUMENTOS` `t` 
+	 INNER JOIN TBL_EXPEDIENTEDOCUMENTOS ec ON ec.TIDO_ID = t.TIDO_ID AND ec.CONT_ID = images ORDER BY t.TIDO_NOMBRE ASC.
+in C:\wamp\www\GUNIG\protected\modules\gestiondocumental\models\Expedientedocumentos.php (116)
+in C:\wamp\www\GUNIG\protected\modules\gestiondocumental\views\mdlexpediente\expedientedocumentos\admin.php (128)
+in C:\wamp\www\GUNIG\protected\modules\gestiondocumental\controllers\mdlexpediente\ExpedientedocumentosController.php (179)
+2013/11/19 16:42:20 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'images' in 'on clause'. The SQL statement executed was: SELECT t.TIDO_ID, t.TIDO_NOMBRE FROM `TBL_TIPOSDOCUMENTOS` `t` 
+	 INNER JOIN TBL_EXPEDIENTEDOCUMENTOS ec ON ec.TIDO_ID = t.TIDO_ID AND ec.CONT_ID = images ORDER BY t.TIDO_NOMBRE ASC.
+in C:\wamp\www\GUNIG\protected\modules\gestiondocumental\models\Expedientedocumentos.php (116)
+in C:\wamp\www\GUNIG\protected\modules\gestiondocumental\views\mdlexpediente\expedientedocumentos\admin.php (121)
+in C:\wamp\www\GUNIG\protected\modules\gestiondocumental\controllers\mdlexpediente\ExpedientedocumentosController.php (179)
+2013/11/19 16:44:58 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'GUNIG' in 'on clause'. The SQL statement executed was: SELECT t.TIDO_ID, t.TIDO_NOMBRE FROM `TBL_TIPOSDOCUMENTOS` `t` 
+	 INNER JOIN TBL_EXPEDIENTEDOCUMENTOS ec ON ec.TIDO_ID = t.TIDO_ID AND ec.CONT_ID = GUNIG ORDER BY t.TIDO_NOMBRE ASC.
+in C:\wamp\www\GUNIG\protected\modules\gestiondocumental\models\Expedientedocumentos.php (116)
+in C:\wamp\www\GUNIG\protected\modules\gestiondocumental\views\mdlexpediente\expedientedocumentos\admin.php (121)
+in C:\wamp\www\GUNIG\protected\modules\gestiondocumental\controllers\mdlexpediente\ExpedientedocumentosController.php (179)
+2013/11/19 20:49:16 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'BD_GESTION_UNG.Mymodel' doesn't exist. The SQL statement executed was: SHOW COLUMNS FROM `Mymodel`.
+in C:\wamp\www\GUNIG\protected\controllers\MymodelController.php (12)
+in C:\wamp\www\GUNIG\index.php (13)
+2013/11/19 20:59:00 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'BD_GESTION_UNG.Mymodel' doesn't exist. The SQL statement executed was: SHOW COLUMNS FROM `Mymodel`.
+in C:\wamp\www\GUNIG\protected\controllers\MymodelController.php (12)
+in C:\wamp\www\GUNIG\index.php (13)
+2013/11/24 14:01:41 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND TICO_ID = 2 AND CLCO_ID = 14' at line 2. The SQL statement executed was: SELECT MAX(CONT_NUMORDEN) FROM TBL_CONTRATOS WHERE CONT_ANIO =  
+	 AND TICO_ID = 2 AND CLCO_ID = 14.
+in C:\wamp\www\GUNIG\protected\modules\contratacion\models\Contratos.php (141)
+in C:\wamp\www\GUNIG\protected\modules\contratacion\controllers\mdlops\OpscontratosController.php (84)
+in C:\wamp\www\GUNIG\index.php (13)
+2013/11/24 14:03:46 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND CLCO_ID = 14' at line 2. The SQL statement executed was: SELECT MAX(CONT_NUMORDEN) FROM TBL_CONTRATOS WHERE CONT_ANIO = 2013 
+	 AND TICO_ID =  AND CLCO_ID = 14.
+in C:\wamp\www\GUNIG\protected\modules\contratacion\models\Contratos.php (141)
+in C:\wamp\www\GUNIG\protected\modules\contratacion\controllers\mdlops\OpscontratosController.php (88)
+in C:\wamp\www\GUNIG\index.php (13)
+2013/11/28 16:23:11 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'BD_GESTION_UNG.TBL_USUARIOS' doesn't exist. The SQL statement executed was: SHOW COLUMNS FROM `TBL_USUARIOS`.
+in C:\wamp\www\GUNIG\protected\models\Usuarios.php (28)
+in C:\wamp\www\GUNIG\protected\modules\contratacion\controllers\mdlops\OpscontratosController.php (30)
+in C:\wamp\www\GUNIG\index.php (13)
+2013/11/28 16:23:31 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'BD_GESTION_UNG.TBL_USUARIOS' doesn't exist. The SQL statement executed was: SHOW COLUMNS FROM `TBL_USUARIOS`.
+in C:\wamp\www\GUNIG\protected\models\Usuarios.php (28)
+in C:\wamp\www\GUNIG\protected\modules\contratacion\controllers\mdlops\OpscontratosController.php (30)
+in C:\wamp\www\GUNIG\index.php (13)
+2013/11/28 16:23:48 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'BD_GESTION_UNG.TBL_USUARIOS' doesn't exist. The SQL statement executed was: SHOW COLUMNS FROM `TBL_USUARIOS`.
+in C:\wamp\www\GUNIG\protected\models\Usuarios.php (28)
+in C:\wamp\www\GUNIG\protected\modules\contratacion\controllers\mdlops\OpscontratosController.php (30)
+in C:\wamp\www\GUNIG\index.php (13)
+2013/11/28 16:23:50 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'BD_GESTION_UNG.TBL_USUARIOS' doesn't exist. The SQL statement executed was: SHOW COLUMNS FROM `TBL_USUARIOS`.
+in C:\wamp\www\GUNIG\protected\models\Usuarios.php (28)
+in C:\wamp\www\GUNIG\protected\modules\contratacion\controllers\mdlops\OpscontratosController.php (30)
+in C:\wamp\www\GUNIG\index.php (13)
+2013/11/28 16:23:58 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'BD_GESTION_UNG.TBL_USUARIOS' doesn't exist. The SQL statement executed was: SHOW COLUMNS FROM `TBL_USUARIOS`.
+in C:\wamp\www\GUNIG\protected\models\Usuarios.php (28)
+in C:\wamp\www\GUNIG\protected\modules\contratacion\controllers\mdlops\OpscontratosController.php (30)
+in C:\wamp\www\GUNIG\index.php (13)
+2013/11/28 17:04:01 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM `TBL_ADICIONALESPRESUPUESTOS` `t` INNER JOIN TBL_PRESUPUESTOS p ON p.PRES_I' at line 4. The SQL statement executed was: SELECT t.ADPR_ID, p.PRES_ID, p.PRES_NUM_CERTIFICADO, p.PRES_DESCRIPCION, p.PRES_SECCION, p.PRES_CODIGO, 
+		p.PRES_MONTO, p.PRES_NOMBRE, t.ADPR_FECHA_INGRESO, p.PRES_FECHA_VIGENCIA,
+	   /* (SELECT ROUND((SUM(((oc.OPCO_VALOR_MENSUAL)*(oc.OPCO_MESES))+((oc.OPCO_VALOR_MENSUAL/30)*(oc.OPCO_DIAS)))))
+		FROM TBL_OPSCONTRATOS oc WHERE t.OPPR_ID = oc.OPPR_ID AND oc.OPPR_ID = t.OPPR_ID) AS TOTALCONTRATADO*/ FROM `TBL_ADICIONALESPRESUPUESTOS` `t` INNER JOIN TBL_PRESUPUESTOS p ON p.PRES_ID = t.PRES_ID LIMIT 10.
+in C:\wamp\www\GUNIG\protected\extensions\bootstrap\widgets\TbGridView.php (49)
+in C:\wamp\www\GUNIG\protected\modules\contratacion\views\mdlops\adicionalespresupuestos\admin.php (117)
+in C:\wamp\www\GUNIG\protected\modules\contratacion\controllers\mdlops\AdicionalespresupuestosController.php (196)
+2013/11/28 22:11:22 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ' d.*, p.* FROM `TBL_CONTRATOSADICIONALES` `t` 
+		INNER JOIN TBL_CONTRATOS  c ON' at line 1. The SQL statement executed was: SELECT t.*, c.*, oc.a*, d.*, p.* FROM `TBL_CONTRATOSADICIONALES` `t` 
+		INNER JOIN TBL_CONTRATOS  c ON c.CONT_ID = t.CONT_ID
+		INNER JOIN TBL_PERSONAS  p ON p.PERS_ID = c.PERS_ID
+		INNER JOIN TBL_OPSCONTRATOS  oc ON oc.CONT_ID = c.CONT_ID		
+		INNER JOIN TBL_DEPENDENCIAS  d ON d.DEPE_ID = oc.DEPE_ID 
+		INNER JOIN TBL_ANIOSACADEMICOS  aa ON aa.ANAC_ID = oc.ANAC_ID AND aa.ANAC_ESTADO = 0 LIMIT 10.
+in C:\wamp\www\GUNIG\protected\extensions\bootstrap\widgets\TbGridView.php (49)
+in C:\wamp\www\GUNIG\protected\modules\contratacion\views\mdlops\contratosadicionales\admin.php (125)
+in C:\wamp\www\GUNIG\protected\modules\contratacion\controllers\mdlops\ContratosadicionalesController.php (154)
+2013/11/28 22:24:19 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1221 Incorrect usage of UNION and ORDER BY. The SQL statement executed was: 
+	 SELECT t.PERS_ID, pj.PEJU_NOMBRE AS NOMBRE
+	 FROM TBL_PERSONAS t
+	 INNER JOIN TBL_PERSONASJURIDICAS pj ON pj.PERS_ID = t.PERS_ID
+	 INNER JOIN TBL_CONTRATOS c ON t.PERS_ID = c.PERS_ID
+	 INNER JOIN TBL_CONTRATOSADICIONALES ca ON ad.CONT_ID = c.CONT_ID
+     INNER JOIN TBL_OPSCONTRATOS  oc ON c.CONT_ID = oc.CONT_ID
+     INNER JOIN TBL_ANIOSACADEMICOS  aa ON oc.ANAC_ID = aa.ANAC_ID AND aa.ANAC_ESTADO = 0 ORDER BY NOMBRE ASC
+	 
+	 UNION ALL
+	 
+	 SELECT t.PERS_ID, CONCAT(pn.PENA_NOMBRES, ' ' , pn.PENA_APELLIDOS) AS NOMBRE
+	 FROM TBL_PERSONAS t
+	 INNER JOIN TBL_PERSONASNATURALES pn ON pn.PERS_ID = t.PERS_ID
+	 INNER JOIN TBL_CONTRATOS c ON t.PERS_ID = c.PERS_ID
+	 INNER JOIN TBL_CONTRATOSADICIONALES ca ON ad.CONT_ID = c.CONT_ID
+     INNER JOIN TBL_OPSCONTRATOS  oc ON c.CONT_ID = oc.CONT_ID
+     INNER JOIN TBL_ANIOSACADEMICOS  aa ON oc.ANAC_ID = aa.ANAC_ID AND aa.ANAC_ESTADO = 0
+	 .
+in C:\wamp\www\GUNIG\protected\modules\contratacion\models\Contratosadicionales.php (167)
+in C:\wamp\www\GUNIG\protected\modules\contratacion\views\mdlops\contratosadicionales\admin.php (96)
+in C:\wamp\www\GUNIG\protected\modules\contratacion\controllers\mdlops\ContratosadicionalesController.php (154)
+2013/11/28 22:25:05 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'ad.CONT_ID' in 'on clause'. The SQL statement executed was: 
+	 SELECT t.PERS_ID, pj.PEJU_NOMBRE AS NOMBRE
+	 FROM TBL_PERSONAS t
+	 INNER JOIN TBL_PERSONASJURIDICAS pj ON pj.PERS_ID = t.PERS_ID
+	 INNER JOIN TBL_CONTRATOS c ON t.PERS_ID = c.PERS_ID
+	 INNER JOIN TBL_CONTRATOSADICIONALES ca ON ad.CONT_ID = c.CONT_ID
+     INNER JOIN TBL_OPSCONTRATOS  oc ON c.CONT_ID = oc.CONT_ID
+     INNER JOIN TBL_ANIOSACADEMICOS  aa ON oc.ANAC_ID = aa.ANAC_ID AND aa.ANAC_ESTADO = 0 
+	 
+	 UNION ALL
+	 
+	 SELECT t.PERS_ID, CONCAT(pn.PENA_NOMBRES, ' ' , pn.PENA_APELLIDOS) AS NOMBRE
+	 FROM TBL_PERSONAS t
+	 INNER JOIN TBL_PERSONASNATURALES pn ON pn.PERS_ID = t.PERS_ID
+	 INNER JOIN TBL_CONTRATOS c ON t.PERS_ID = c.PERS_ID
+	 INNER JOIN TBL_CONTRATOSADICIONALES ca ON ad.CONT_ID = c.CONT_ID
+     INNER JOIN TBL_OPSCONTRATOS  oc ON c.CONT_ID = oc.CONT_ID
+     INNER JOIN TBL_ANIOSACADEMICOS  aa ON oc.ANAC_ID = aa.ANAC_ID AND aa.ANAC_ESTADO = 0 ORDER BY NOMBRE ASC
+	 .
+in C:\wamp\www\GUNIG\protected\modules\contratacion\models\Contratosadicionales.php (167)
+in C:\wamp\www\GUNIG\protected\modules\contratacion\views\mdlops\contratosadicionales\admin.php (96)
+in C:\wamp\www\GUNIG\protected\modules\contratacion\controllers\mdlops\ContratosadicionalesController.php (154)
+2013/11/28 22:48:17 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'pn.PENA_NOMBRES' in 'order clause'. The SQL statement executed was: SELECT c.PERS_ID, c.CONT_ID, t.OPCO_ID, p.PERS_IDENTIFICACION, c.PECO_ID, c.CONT_NUMORDEN,
+		c.CONT_FECHAINICIO, c.CONT_FECHAFINAL, c.CLCO_ID, t.ANAC_ID, t.OPCO_MESES, t.OPCO_DIAS, t.OPCO_VALOR_MENSUAL, t.DEPE_ID FROM `TBL_OPSCONTRATOS` `t` 
+		INNER JOIN TBL_CONTRATOS  c ON c.CONT_ID = t.CONT_ID
+		INNER JOIN TBL_PERSONAS p ON p.PERS_ID = c.PERS_ID
+		/*INNER JOIN TBL_PERSONASNATURALES  pn ON pn.PERS_ID = p.PERS_ID*/
+		INNER JOIN TBL_ANIOSACADEMICOS  aa ON aa.ANAC_ID = t.ANAC_ID AND aa.ANAC_ESTADO=0 ORDER BY pn.PENA_NOMBRES LIMIT 30.
+in C:\wamp\www\GUNIG\protected\extensions\bootstrap\widgets\TbGridView.php (49)
+in C:\wamp\www\GUNIG\protected\modules\contratacion\views\mdlops\opscontratos\admin.php (133)
+in C:\wamp\www\GUNIG\protected\modules\contratacion\controllers\mdlops\OpscontratosController.php (270)
+2013/12/05 16:44:39 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'PENA_NOMBRES' in 'field list'. The SQL statement executed was: SELECT DISTINCT(PENA_NOMBRES) AS PENA_NOMBRES FROM `TBL_PERSONAS` `t` WHERE PENA_NOMBRES LIKE :keyword ORDER BY PENA_NOMBRES LIMIT 0.
+in C:\wamp\www\GUNIG\protected\modules\contratacion\controllers\mdlops\PersonasnaturalesController.php (274)
+in C:\wamp\www\GUNIG\index.php (13)
+2013/12/09 22:05:17 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1. The SQL statement executed was: SELECT * FROM `TBL_OCASIONALESCONTRATOS` `t` WHERE PENO_ID =  LIMIT 1.
+in C:\wamp\www\GUNIG\protected\modules\contratacion\controllers\mdlocasionales\PersnaturalesocasionalesController.php (152)
+in C:\wamp\www\GUNIG\index.php (13)
+2013/12/10 18:29:32 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '0' for key 'PRIMARY'. The SQL statement executed was: UPDATE `TBL_TIPOSDOCUMENTOS` SET `TIDO_ID`=:yp0, `TIDO_NOMBRE`=:yp1, `TIDO_ORDEN`=:yp2 WHERE `TBL_TIPOSDOCUMENTOS`.`TIDO_ID`=6.
+in C:\wamp\www\GUNIG\protected\modules\gestiondocumental\controllers\mdlexpediente\TiposdocumentosController.php (167)
+in C:\wamp\www\GUNIG\index.php (13)
+2013/12/10 18:41:02 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'FROM `TBL_TIPOSDOCUMENTOS` `t` ORDER BY TIDO_ORDEN ASC LIMIT 100' at line 1. The SQL statement executed was: SELECT t.s* FROM `TBL_TIPOSDOCUMENTOS` `t` ORDER BY TIDO_ORDEN ASC LIMIT 100.
+in C:\wamp\www\GUNIG\protected\extensions\bootstrap\widgets\TbGridView.php (49)
+in C:\wamp\www\GUNIG\protected\modules\gestiondocumental\views\mdlexpediente\tiposdocumentos\admin.php (117)
+in C:\wamp\www\GUNIG\protected\modules\gestiondocumental\controllers\mdlexpediente\TiposdocumentosController.php (173)
+2014/01/07 16:34:18 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND 
+	  CONT_ANIO = 2014 AND TICO_ID = 2 AND CLCO_ID = 14' at line 1. The SQL statement executed was: SELECT CONT_NUMORDEN FROM TBL_CONTRATOS WHERE CONT_NUMORDEN =  AND 
+	  CONT_ANIO = 2014 AND TICO_ID = 2 AND CLCO_ID = 14.
+in C:\wamp\www\GUNIG\protected\modules\contratacion\models\Contratos.php (152)
+in C:\wamp\www\GUNIG\protected\modules\contratacion\controllers\mdlops\OpscontratosController.php (91)
+in C:\wamp\www\GUNIG\index.php (13)
+2014/01/24 21:39:41 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'c.CONT_IDs' in 'field list'. The SQL statement executed was: SELECT c.PERS_ID, c.CONT_IDs, t.OPCO_ID, p.PERS_IDENTIFICACION, c.PECO_ID, c.CONT_NUMORDEN,
+		c.CONT_FECHAINICIO, c.CONT_FECHAFINAL, c.CLCO_ID, t.ANAC_ID, t.OPCO_MESES, t.OPCO_DIAS, t.OPCO_VALOR_MENSUAL, t.DEPE_ID FROM `TBL_OPSCONTRATOS` `t` 
+		INNER JOIN TBL_CONTRATOS  c ON c.CONT_ID = t.CONT_ID
+		INNER JOIN TBL_PERSONAS p ON p.PERS_ID = c.PERS_ID
+		/*INNER JOIN TBL_PERSONASNATURALES  pn ON pn.PERS_ID = p.PERS_ID*/
+		INNER JOIN TBL_ANIOSACADEMICOS  aa ON aa.ANAC_ID = t.ANAC_ID AND aa.ANAC_ESTADO=0 ORDER BY c.CONT_NUMORDEN DESC LIMIT 15.
+in C:\wamp\www\GUNIG\protected\extensions\bootstrap\widgets\TbGridView.php (49)
+in C:\wamp\www\GUNIG\protected\modules\contratacion\views\mdlops\opscontratos\admin.php (133)
+in C:\wamp\www\GUNIG\protected\modules\contratacion\controllers\mdlops\OpscontratosController.php (270)
+2014/01/24 21:42:10 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'c.CONT_IDs' in 'field list'. The SQL statement executed was: SELECT c.PERS_ID, c.CONT_IDs, t.OPCO_ID, p.PERS_IDENTIFICACION, c.PECO_ID, c.CONT_NUMORDEN,
+		c.CONT_FECHAINICIO, c.CONT_FECHAFINAL, c.CLCO_ID, t.ANAC_ID, t.OPCO_MESES, t.OPCO_DIAS, t.OPCO_VALOR_MENSUAL, t.DEPE_ID FROM `TBL_OPSCONTRATOS` `t` 
+		INNER JOIN TBL_CONTRATOS  c ON c.CONT_ID = t.CONT_ID
+		INNER JOIN TBL_PERSONAS p ON p.PERS_ID = c.PERS_ID
+		/*INNER JOIN TBL_PERSONASNATURALES  pn ON pn.PERS_ID = p.PERS_ID*/
+		INNER JOIN TBL_ANIOSACADEMICOS  aa ON aa.ANAC_ID = t.ANAC_ID AND aa.ANAC_ESTADO=0 ORDER BY c.CONT_NUMORDEN DESC LIMIT 15 OFFSET 15.
+in C:\wamp\www\GUNIG\protected\extensions\bootstrap\widgets\TbGridView.php (49)
+in C:\wamp\www\GUNIG\protected\modules\contratacion\views\mdlops\opscontratos\admin.php (133)
+in C:\wamp\www\GUNIG\protected\modules\contratacion\controllers\mdlops\OpscontratosController.php (270)
+2014/01/24 21:43:37 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'c.CONT_IDs' in 'field list'. The SQL statement executed was: SELECT c.PERS_ID, c.CONT_IDs, t.OPCO_ID, p.PERS_IDENTIFICACION, c.PECO_ID, c.CONT_NUMORDEN,
+		c.CONT_FECHAINICIO, c.CONT_FECHAFINAL, c.CLCO_ID, t.ANAC_ID, t.OPCO_MESES, t.OPCO_DIAS, t.OPCO_VALOR_MENSUAL, t.DEPE_ID FROM `TBL_OPSCONTRATOS` `t` 
+		INNER JOIN TBL_CONTRATOS  c ON c.CONT_ID = t.CONT_ID
+		INNER JOIN TBL_PERSONAS p ON p.PERS_ID = c.PERS_ID
+		/*INNER JOIN TBL_PERSONASNATURALES  pn ON pn.PERS_ID = p.PERS_ID*/
+		INNER JOIN TBL_ANIOSACADEMICOS  aa ON aa.ANAC_ID = t.ANAC_ID AND aa.ANAC_ESTADO=0 ORDER BY c.CONT_NUMORDEN DESC LIMIT 15 OFFSET 15.
+in C:\wamp\www\GUNIG\protected\extensions\bootstrap\widgets\TbGridView.php (49)
+in C:\wamp\www\GUNIG\protected\modules\contratacion\views\mdlops\opscontratos\admin.php (133)
+in C:\wamp\www\GUNIG\protected\modules\contratacion\controllers\mdlops\OpscontratosController.php (270)
+2014/01/24 21:43:40 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'c.CONT_IDs' in 'field list'. The SQL statement executed was: SELECT c.PERS_ID, c.CONT_IDs, t.OPCO_ID, p.PERS_IDENTIFICACION, c.PECO_ID, c.CONT_NUMORDEN,
+		c.CONT_FECHAINICIO, c.CONT_FECHAFINAL, c.CLCO_ID, t.ANAC_ID, t.OPCO_MESES, t.OPCO_DIAS, t.OPCO_VALOR_MENSUAL, t.DEPE_ID FROM `TBL_OPSCONTRATOS` `t` 
+		INNER JOIN TBL_CONTRATOS  c ON c.CONT_ID = t.CONT_ID
+		INNER JOIN TBL_PERSONAS p ON p.PERS_ID = c.PERS_ID
+		/*INNER JOIN TBL_PERSONASNATURALES  pn ON pn.PERS_ID = p.PERS_ID*/
+		INNER JOIN TBL_ANIOSACADEMICOS  aa ON aa.ANAC_ID = t.ANAC_ID AND aa.ANAC_ESTADO=0 ORDER BY c.CONT_NUMORDEN DESC LIMIT 15 OFFSET 15.
+in C:\wamp\www\GUNIG\protected\extensions\bootstrap\widgets\TbGridView.php (49)
+in C:\wamp\www\GUNIG\protected\modules\contratacion\views\mdlops\opscontratos\admin.php (133)
+in C:\wamp\www\GUNIG\protected\modules\contratacion\controllers\mdlops\OpscontratosController.php (270)
+2014/01/24 21:43:46 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'c.CONT_IDs' in 'field list'. The SQL statement executed was: SELECT c.PERS_ID, c.CONT_IDs, t.OPCO_ID, p.PERS_IDENTIFICACION, c.PECO_ID, c.CONT_NUMORDEN,
+		c.CONT_FECHAINICIO, c.CONT_FECHAFINAL, c.CLCO_ID, t.ANAC_ID, t.OPCO_MESES, t.OPCO_DIAS, t.OPCO_VALOR_MENSUAL, t.DEPE_ID FROM `TBL_OPSCONTRATOS` `t` 
+		INNER JOIN TBL_CONTRATOS  c ON c.CONT_ID = t.CONT_ID
+		INNER JOIN TBL_PERSONAS p ON p.PERS_ID = c.PERS_ID
+		/*INNER JOIN TBL_PERSONASNATURALES  pn ON pn.PERS_ID = p.PERS_ID*/
+		INNER JOIN TBL_ANIOSACADEMICOS  aa ON aa.ANAC_ID = t.ANAC_ID AND aa.ANAC_ESTADO=0 ORDER BY c.CONT_NUMORDEN DESC LIMIT 15 OFFSET 15.
+in C:\wamp\www\GUNIG\protected\extensions\bootstrap\widgets\TbGridView.php (49)
+in C:\wamp\www\GUNIG\protected\modules\contratacion\views\mdlops\opscontratos\admin.php (133)
+in C:\wamp\www\GUNIG\protected\modules\contratacion\controllers\mdlops\OpscontratosController.php (270)
+2014/01/24 21:44:22 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'c.CONT_IDs' in 'field list'. The SQL statement executed was: SELECT c.PERS_ID, c.CONT_IDs, t.OPCO_ID, p.PERS_IDENTIFICACION, c.PECO_ID, c.CONT_NUMORDEN,
+		c.CONT_FECHAINICIO, c.CONT_FECHAFINAL, c.CLCO_ID, t.ANAC_ID, t.OPCO_MESES, t.OPCO_DIAS, t.OPCO_VALOR_MENSUAL, t.DEPE_ID FROM `TBL_OPSCONTRATOS` `t` 
+		INNER JOIN TBL_CONTRATOS  c ON c.CONT_ID = t.CONT_ID
+		INNER JOIN TBL_PERSONAS p ON p.PERS_ID = c.PERS_ID
+		/*INNER JOIN TBL_PERSONASNATURALES  pn ON pn.PERS_ID = p.PERS_ID*/
+		INNER JOIN TBL_ANIOSACADEMICOS  aa ON aa.ANAC_ID = t.ANAC_ID AND aa.ANAC_ESTADO=0 WHERE c.CONT_NUMORDEN>:ycp0 ORDER BY c.CONT_NUMORDEN DESC LIMIT 15.
+in C:\wamp\www\GUNIG\protected\modules\contratacion\controllers\mdlops\OpscontratosController.php (354)
+in C:\wamp\www\GUNIG\index.php (13)
+2014/01/24 21:45:36 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'c.CONT_IDs' in 'field list'. The SQL statement executed was: SELECT c.PERS_ID, c.CONT_IDs, t.OPCO_ID, p.PERS_IDENTIFICACION, c.PECO_ID, c.CONT_NUMORDEN,
+		c.CONT_FECHAINICIO, c.CONT_FECHAFINAL, c.CLCO_ID, t.ANAC_ID, t.OPCO_MESES, t.OPCO_DIAS, t.OPCO_VALOR_MENSUAL, t.DEPE_ID FROM `TBL_OPSCONTRATOS` `t` 
+		INNER JOIN TBL_CONTRATOS  c ON c.CONT_ID = t.CONT_ID
+		INNER JOIN TBL_PERSONAS p ON p.PERS_ID = c.PERS_ID
+		/*INNER JOIN TBL_PERSONASNATURALES  pn ON pn.PERS_ID = p.PERS_ID*/
+		INNER JOIN TBL_ANIOSACADEMICOS  aa ON aa.ANAC_ID = t.ANAC_ID AND aa.ANAC_ESTADO=0 ORDER BY c.CONT_NUMORDEN DESC LIMIT 15 OFFSET 15.
+in C:\wamp\www\GUNIG\protected\extensions\bootstrap\widgets\TbGridView.php (49)
+in C:\wamp\www\GUNIG\protected\modules\contratacion\views\mdlops\opscontratos\admin.php (133)
+in C:\wamp\www\GUNIG\protected\modules\contratacion\controllers\mdlops\OpscontratosController.php (270)
+2014/01/24 21:45:43 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'c.CONT_IDs' in 'field list'. The SQL statement executed was: SELECT c.PERS_ID, c.CONT_IDs, t.OPCO_ID, p.PERS_IDENTIFICACION, c.PECO_ID, c.CONT_NUMORDEN,
+		c.CONT_FECHAINICIO, c.CONT_FECHAFINAL, c.CLCO_ID, t.ANAC_ID, t.OPCO_MESES, t.OPCO_DIAS, t.OPCO_VALOR_MENSUAL, t.DEPE_ID FROM `TBL_OPSCONTRATOS` `t` 
+		INNER JOIN TBL_CONTRATOS  c ON c.CONT_ID = t.CONT_ID
+		INNER JOIN TBL_PERSONAS p ON p.PERS_ID = c.PERS_ID
+		/*INNER JOIN TBL_PERSONASNATURALES  pn ON pn.PERS_ID = p.PERS_ID*/
+		INNER JOIN TBL_ANIOSACADEMICOS  aa ON aa.ANAC_ID = t.ANAC_ID AND aa.ANAC_ESTADO=0 WHERE c.CONT_NUMORDEN>:ycp0 ORDER BY c.CONT_NUMORDEN DESC LIMIT 15.
+in C:\wamp\www\GUNIG\protected\modules\contratacion\controllers\mdlops\OpscontratosController.php (354)
+in C:\wamp\www\GUNIG\index.php (13)
+2014/01/24 22:02:56 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'c.CONT_IDs' in 'field list'. The SQL statement executed was: SELECT c.PERS_ID, c.CONT_IDs, t.OPCO_ID, p.PERS_IDENTIFICACION, c.PECO_ID, c.CONT_NUMORDEN,
+		c.CONT_FECHAINICIO, c.CONT_FECHAFINAL, c.CLCO_ID, t.ANAC_ID, t.OPCO_MESES, t.OPCO_DIAS, t.OPCO_VALOR_MENSUAL, t.DEPE_ID FROM `TBL_OPSCONTRATOS` `t` 
+		INNER JOIN TBL_CONTRATOS  c ON c.CONT_ID = t.CONT_ID
+		INNER JOIN TBL_PERSONAS p ON p.PERS_ID = c.PERS_ID
+		/*INNER JOIN TBL_PERSONASNATURALES  pn ON pn.PERS_ID = p.PERS_ID*/
+		INNER JOIN TBL_ANIOSACADEMICOS  aa ON aa.ANAC_ID = t.ANAC_ID AND aa.ANAC_ESTADO=0 ORDER BY c.CONT_NUMORDEN DESC LIMIT 15.
+in C:\wamp\www\GUNIG\protected\extensions\bootstrap\widgets\TbGridView.php (49)
+in C:\wamp\www\GUNIG\protected\modules\contratacion\views\mdlops\opscontratos\admin.php (133)
+in C:\wamp\www\GUNIG\protected\modules\contratacion\controllers\mdlops\OpscontratosController.php (270)
+2014/01/25 13:22:46 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'LIMIT 1' at line 1. The SQL statement executed was: SELECT * FROM `TBL_USUARIOSPERFILESUSUARIOS` `t` WHERE USUA_ID =  LIMIT 1.
+in C:\wamp\www\GUNIG\protected\modules\contratacion\views\opscpanel\index.php (16)
+in C:\wamp\www\GUNIG\protected\modules\contratacion\controllers\OpscpanelController.php (7)
+in C:\wamp\www\GUNIG\index.php (13)
+2014/01/25 13:25:34 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'BD_GESTION_UNG.TBL_USUARIOSMODULOS' doesn't exist. The SQL statement executed was: SELECT usm.USSM_ID, usm.USSM_NOMBRE, usm.USSM_URL
+			 FROM TBL_USUARIOSMODULOS um, TBL_USUARIOSSUBMODULOS usm, TBL_USUARIOSROLES ur, TBL_USUARIOSPERFILES up,
+			 TBL_USUARIOSPERFILESUSUARIOS upu, TBL_USUARIOS u
+			 WHERE um.USMO_ID = ur.USMO_ID AND usm.USSM_ID = ur.USSM_ID AND ur.USPE_ID = up.USPE_ID AND up.USPE_ID = upu.USPE_ID
+			 AND upu.USUA_ID = u.USUA_ID AND u.USUA_ID = 1 AND um.USMO_URL='contratacion'  GROUP BY usm.USSM_ID.
+in C:\wamp\www\GUNIG\protected\components\WebUser.php (82)
+in C:\wamp\www\GUNIG\protected\modules\contratacion\views\default\index.php (9)
+in C:\wamp\www\GUNIG\protected\modules\contratacion\controllers\DefaultController.php (7)
+2014/01/25 13:31:48 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'c.CONT_IDs' in 'field list'. The SQL statement executed was: SELECT c.PERS_ID, c.CONT_IDs, t.OPCO_ID, p.PERS_IDENTIFICACION, c.PECO_ID, c.CONT_NUMORDEN,
+		c.CONT_FECHAINICIO, c.CONT_FECHAFINAL, c.CLCO_ID, t.ANAC_ID, t.OPCO_MESES, t.OPCO_DIAS, t.OPCO_VALOR_MENSUAL, t.DEPE_ID FROM `TBL_OPSCONTRATOS` `t` 
+		INNER JOIN TBL_CONTRATOS  c ON c.CONT_ID = t.CONT_ID
+		INNER JOIN TBL_PERSONAS p ON p.PERS_ID = c.PERS_ID
+		/*INNER JOIN TBL_PERSONASNATURALES  pn ON pn.PERS_ID = p.PERS_ID*/
+		INNER JOIN TBL_ANIOSACADEMICOS  aa ON aa.ANAC_ID = t.ANAC_ID AND aa.ANAC_ESTADO=0 ORDER BY c.CONT_NUMORDEN DESC LIMIT 15.
+in C:\wamp\www\GUNIG\protected\extensions\bootstrap\widgets\TbGridView.php (49)
+in C:\wamp\www\GUNIG\protected\modules\contratacion\views\mdlops\opscontratos\admin.php (133)
+in C:\wamp\www\GUNIG\protected\modules\contratacion\controllers\mdlops\OpscontratosController.php (270)
+2014/01/25 13:32:08 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'c.CONT_IDs' in 'field list'. The SQL statement executed was: SELECT c.PERS_ID, c.CONT_IDs, t.OPCO_ID, p.PERS_IDENTIFICACION, c.PECO_ID, c.CONT_NUMORDEN,
+		c.CONT_FECHAINICIO, c.CONT_FECHAFINAL, c.CLCO_ID, t.ANAC_ID, t.OPCO_MESES, t.OPCO_DIAS, t.OPCO_VALOR_MENSUAL, t.DEPE_ID FROM `TBL_OPSCONTRATOS` `t` 
+		INNER JOIN TBL_CONTRATOS  c ON c.CONT_ID = t.CONT_ID
+		INNER JOIN TBL_PERSONAS p ON p.PERS_ID = c.PERS_ID
+		/*INNER JOIN TBL_PERSONASNATURALES  pn ON pn.PERS_ID = p.PERS_ID*/
+		INNER JOIN TBL_ANIOSACADEMICOS  aa ON aa.ANAC_ID = t.ANAC_ID AND aa.ANAC_ESTADO=0 ORDER BY c.CONT_NUMORDEN DESC LIMIT 15.
+in C:\wamp\www\GUNIG\protected\extensions\bootstrap\widgets\TbGridView.php (49)
+in C:\wamp\www\GUNIG\protected\modules\contratacion\views\mdlops\opscontratos\admin.php (133)
+in C:\wamp\www\GUNIG\protected\modules\contratacion\controllers\mdlops\OpscontratosController.php (270)
+2014/01/25 13:33:32 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'c.CONT_IDs' in 'field list'. The SQL statement executed was: SELECT c.PERS_ID, c.CONT_IDs, t.OPCO_ID, p.PERS_IDENTIFICACION, c.PECO_ID, c.CONT_NUMORDEN,
+		c.CONT_FECHAINICIO, c.CONT_FECHAFINAL, c.CLCO_ID, t.ANAC_ID, t.OPCO_MESES, t.OPCO_DIAS, t.OPCO_VALOR_MENSUAL, t.DEPE_ID FROM `TBL_OPSCONTRATOS` `t` 
+		INNER JOIN TBL_CONTRATOS  c ON c.CONT_ID = t.CONT_ID
+		INNER JOIN TBL_PERSONAS p ON p.PERS_ID = c.PERS_ID
+		/*INNER JOIN TBL_PERSONASNATURALES  pn ON pn.PERS_ID = p.PERS_ID*/
+		INNER JOIN TBL_ANIOSACADEMICOS  aa ON aa.ANAC_ID = t.ANAC_ID AND aa.ANAC_ESTADO=0 ORDER BY c.CONT_NUMORDEN DESC LIMIT 15 OFFSET 15.
+in C:\wamp\www\GUNIG\protected\extensions\bootstrap\widgets\TbGridView.php (49)
+in C:\wamp\www\GUNIG\protected\modules\contratacion\views\mdlops\opscontratos\admin.php (133)
+in C:\wamp\www\GUNIG\protected\modules\contratacion\controllers\mdlops\OpscontratosController.php (270)
+2014/01/25 13:55:38 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'c.CONT_IDs' in 'field list'. The SQL statement executed was: SELECT c.PERS_ID, c.CONT_IDs, t.OPCO_ID, p.PERS_IDENTIFICACION, c.PECO_ID, c.CONT_NUMORDEN,
+		c.CONT_FECHAINICIO, c.CONT_FECHAFINAL, c.CLCO_ID, t.ANAC_ID, t.OPCO_MESES, t.OPCO_DIAS, t.OPCO_VALOR_MENSUAL, t.DEPE_ID FROM `TBL_OPSCONTRATOS` `t` 
+		INNER JOIN TBL_CONTRATOS  c ON c.CONT_ID = t.CONT_ID
+		INNER JOIN TBL_PERSONAS p ON p.PERS_ID = c.PERS_ID
+		/*INNER JOIN TBL_PERSONASNATURALES  pn ON pn.PERS_ID = p.PERS_ID*/
+		INNER JOIN TBL_ANIOSACADEMICOS  aa ON aa.ANAC_ID = t.ANAC_ID AND aa.ANAC_ESTADO=0 ORDER BY c.CONT_NUMORDEN DESC LIMIT 15 OFFSET 15.
+in C:\wamp\www\GUNIG\protected\extensions\bootstrap\widgets\TbGridView.php (49)
+in C:\wamp\www\GUNIG\protected\modules\contratacion\views\mdlops\opscontratos\admin.php (133)
+in C:\wamp\www\GUNIG\protected\modules\contratacion\controllers\mdlops\OpscontratosController.php (270)
