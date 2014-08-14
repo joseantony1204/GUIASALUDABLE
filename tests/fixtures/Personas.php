@@ -1,6 +1,6 @@
 <?php
 require_once("Conexion.php");
-//nemesis1
+
 /*ESTRUCTURA PARA EL OBJETO PeriodosAcademicos */
 class Personas{
  var $tabla, $alias, $pref, $idpersona, $identificacion, $fechaingreso, $correo, $direccion, $telefono, $tipoidentificacion, $tiporegimen, $pais, $dpto, $municipio;

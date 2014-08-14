@@ -1,0 +1,30 @@
+<project name="GUIASALUDABLE" default="build">
+  <property name="package" value="GUIASALUDABLE" override="true" />
+  
+  <target name="clean">
+    <delete dir="build"/>
+  </target>
+  
+  <target name="prepare">
+    <mkdir dir="build/logs"/>
+  </target>
+  
+  <target name="phpunit">
+    <phpunit printsummary="true" haltonfailure="false">
+      <formatter todir="build/logs" type="xml"/>
+      <batchtest>
+        <fileset dir="tests/unit/">
+          <include name="PersonasTest.php"/>
+        </fileset>
+      </batchtest>
+      <formatter type="xml" todir="report" outfile="logfile.xml"/>
+   </phpunit>
+   <phpunitreport infile="report/logfile.xml"
+                  styledir="C:\wamp\bin\php\php5.4.12\data\phing\etc"
+                  format="frames"
+                  todir="report"
+	/> 
+   
+  </target>
+  <target name="build" depends="clean,prepare,phpunit"/>
+</project>

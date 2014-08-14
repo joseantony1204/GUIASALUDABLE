@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+  <testsuite name="AllTests" tests="3" assertions="2" failures="0" errors="0" time="0.027562">
+    <testsuite name="PersonasTest" file="C:\wamp\www\GUIASALUDABLE\tests\unit\PersonasTest.php" tests="3" assertions="2" failures="0" errors="0" time="0.027562">
+      <testcase name="testConnection" class="PersonasTest" file="C:\wamp\www\GUIASALUDABLE\tests\unit\PersonasTest.php" line="6" assertions="1" time="0.005590"/>
+      <testcase name="testComparation" class="PersonasTest" file="C:\wamp\www\GUIASALUDABLE\tests\unit\PersonasTest.php" line="11" assertions="1" time="0.018129"/>
+      <testcase name="testInsert" class="PersonasTest" file="C:\wamp\www\GUIASALUDABLE\tests\unit\PersonasTest.php" line="17" assertions="0" time="0.003843"/>
+    </testsuite>
+  </testsuite>
+</testsuites>
