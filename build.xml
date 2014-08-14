@@ -20,7 +20,7 @@
       <formatter type="xml" todir="report" outfile="logfile.xml"/>
    </phpunit>
    <phpunitreport infile="report/logfile.xml"
-                  styledir="C:\wamp\bin\php\php5.4.12\data\phing\etc"
+                  styledir="C:\wamp\bin\php\php5.4.16\data\phing\etc"
                   format="frames"
                   todir="report"
 	/> 
